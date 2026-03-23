@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+bin/
+lib/
+include/
+pyvenv.cfg
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Model artifacts
+model.pkl
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/

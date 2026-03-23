@@ -1,0 +1,29 @@
+# Docker Compose Configuration
+# Student ID: st126112
+# Titanic Survival Predictor
+
+version: '3.8'
+
+services:
+  titanic-predictor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: titanic-predictor:st126112
+    container_name: titanic-app-st126112
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "com.student.id=st126112"
+      - "com.project.name=titanic-survival-predictor"
+      - "com.project.version=1.0"
